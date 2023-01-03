@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+
+    <changeSet id="create-table-order" author="joopinho">
+        <createTable tableName="order">
+            <column name="id" type="bigserial">
+                <constraints primaryKey="true" nullable="false" primaryKeyName="order_id_pk"/>
+            </column>
+            <column name="created_dt" type="datetime"/>
+            <column name="created_by" type="bigint"/>
+            <column name="amount" type="numeric"/>
+            <column name="external_id" type="varchar(255)"/>
+            <column name="link_id" type="varchar(50)"/>
+        </createTable>
+        <createIndex indexName="order_external_id" tableName="order" unique="false">
+            <column name="external_id"/>
+        </createIndex>
+        <createIndex indexName="order_link_id" tableName="order" unique="true">
+            <column name="link_id"/>
+        </createIndex>
+        <addForeignKeyConstraint baseTableName="order" baseColumnNames="created_by"
+                                 constraintName="order_created_by"
+                                 referencedTableName="user" referencedColumnNames="id"
+                                 deleteCascade="false"/>
+    </changeSet>
+
+</databaseChangeLog>

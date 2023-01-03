@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+
+    <changeSet id="create-table-tips" author="joopinho">
+        <createTable tableName="tips">
+            <column name="id" type="bigserial">
+                <constraints primaryKey="true" nullable="false" primaryKeyName="tips_id_pk"/>
+            </column>
+            <column name="created_dt" type="datetime"/>
+            <column name="order_id" type="bigint"/>
+            <column name="amount" type="numeric"/>
+            <column name="external_id" type="varchar(255)"/>
+        </createTable>
+        <createIndex indexName="tips_external_id" tableName="tips" unique="false">
+            <column name="external_id"/>
+        </createIndex>
+        <createIndex indexName="tips_order_id" tableName="tips" unique="false">
+            <column name="order_id"/>
+        </createIndex>
+        <addForeignKeyConstraint baseTableName="tips" baseColumnNames="order_id"
+                                 constraintName="tips_order_id"
+                                 referencedTableName="order" referencedColumnNames="id"
+                                 deleteCascade="false"/>
+    </changeSet>
+
+</databaseChangeLog>
