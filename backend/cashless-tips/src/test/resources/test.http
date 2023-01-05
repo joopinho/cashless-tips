@@ -1,0 +1,56 @@
+POST http://localhost:8080/order/1/tips
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJpdmFuQG1haWwucnUiLCJhdXRob3JpdGllcyI6W10sImlhdCI6MTY3Mjc0MzUyMCwiZXhwIjoxNjczNTU3MjAwfQ.0SbU8zlkJ3LKkDD2gRXC9Y6HS-QNCBvlK1NZ2XWr6vLUbAm2KkRZhnslz4ErALxFwNDOpLUTMxqU13Gg4ctNXw
+
+{
+    "currency": "usd",
+    "amount": "100000"
+}
+###
+POST http://localhost:8080/api/v1/order
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJpdmFuQG1haWwucnUiLCJhdXRob3JpdGllcyI6W10sImlhdCI6MTY3Mjc0MjE4MywiZXhwIjoxNjczNTU3MjAwfQ.MBhOvIUhbAF0px3Cf_ednAWZfLRwUIsO_85CaWyJsuGt6hBOfSwYfWqSmyjGfo7-ug3Tb3LnvnBNpM7DsL2Zjg
+
+{
+    "orderNumber": "33333",
+    "amount": "1000000"
+}
+
+###
+GET http://localhost:8080/order/nfvxnrgu
+content-type: application/json
+##Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJpdmFuQG1haWwucnUiLCJhdXRob3JpdGllcyI6W10sImlhdCI6MTY3MjY5MTQxMSwiZXhwIjoxNjczNDcwODAwfQ.IgxlDpO8daZgwNOkcwkytYDVJtenGBiqTqXKDUeqlo-Ettk2SCa6kUHfa3NtMJOt5QAeJgSY_hH6n9HWjxJqvQ
+
+###
+GET http://localhost:8080/api/v1/order/1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJpdmFuQG1haWwucnUiLCJhdXRob3JpdGllcyI6W10sImlhdCI6MTY3MjczNDY2NiwiZXhwIjoxNjczNTU3MjAwfQ.TGJm9UBmTRG6VyzbKs4ujO_6y_AgqHvXP0Dl6OPu5t9NRhglAx6gwHur6EVnL0fZf84nbhoRP3IrK1CEleLAdQ
+
+###
+GET http://localhost:8080/api/v1/order/filter
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJpdmFuQG1haWwucnUiLCJhdXRob3JpdGllcyI6W10sImlhdCI6MTY3MjczNDY2NiwiZXhwIjoxNjczNTU3MjAwfQ.TGJm9UBmTRG6VyzbKs4ujO_6y_AgqHvXP0Dl6OPu5t9NRhglAx6gwHur6EVnL0fZf84nbhoRP3IrK1CEleLAdQ
+
+
+
+###
+POST http://localhost:8080/register
+content-type: application/json
+
+{
+    "username": "ivan@mail.ru",
+    "password": "Qwertyytrewq!1",
+    "firstName": ""
+}
+
+###
+
+POST http://localhost:8080/login
+content-type: application/json
+
+{
+    "username": "ivan@mail.ru",
+    "password": "Qwertyytrewq!1"
+}
+
+
